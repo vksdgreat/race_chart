@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { charts } from "../data/charts.js"
 
+// just adding comment to trigger a build
 export default function HomePage() {
   return (
     <div className="home">
