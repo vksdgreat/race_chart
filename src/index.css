@@ -1,0 +1,518 @@
+:root {
+  color-scheme: dark;
+  --bg: #07110e;
+  --bg-raise: #10211b;
+  --ink: #f4f0e6;
+  --muted: #9aafa4;
+  --line: rgba(244, 240, 230, 0.12);
+  --brass: #e6c36a;
+  --brass-ink: #1a1406;
+  --danger: #ffb4a2;
+  font-family: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(900px 420px at 10% -10%, rgba(46, 120, 90, 0.35), transparent 60%),
+    var(--bg);
+}
+
+body {
+  min-height: 100dvh;
+}
+
+button, input { font: inherit; color: inherit; }
+
+a { color: inherit; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.home {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+.home-hero h1,
+.titles h1,
+.year-figure,
+.year-chip {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--brass);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 4.6rem);
+  line-height: 0.95;
+  max-width: 12ch;
+}
+
+.lede {
+  max-width: 42rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.catalog-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.catalog-head h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.catalog-head span,
+.card-kicker,
+.card-meta,
+.year-panel p,
+.about,
+.titles p {
+  color: var(--muted);
+}
+
+.chart-list {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.chart-card {
+  display: grid;
+  gap: 18px;
+  text-decoration: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  min-height: 100%;
+}
+
+.chart-card:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.chart-card h3 {
+  margin: 4px 0 8px;
+  font-size: clamp(1.45rem, 4vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.card-copy p { margin: 0; }
+
+.card-kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.card-meta span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.82rem;
+}
+
+.card-preview {
+  background: #08140f;
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.preview-row {
+  display: grid;
+  grid-template-columns: minmax(0, 118px) 1fr;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.preview-row span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview-track {
+  height: 8px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.preview-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.watch {
+  justify-self: start;
+  margin-top: 6px;
+  background: var(--brass);
+  color: var(--brass-ink);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.92rem;
+}
+
+.screen {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+  gap: 10px;
+  overflow: auto;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.back, .text-link {
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.titles h1 {
+  margin: 0;
+  font-size: clamp(1.15rem, 3.4vw, 1.7rem);
+  line-height: 1.05;
+}
+
+.titles p {
+  margin: 3px 0 0;
+  font-size: 0.86rem;
+}
+
+.year-chip {
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+  line-height: 1;
+  color: var(--brass);
+}
+
+.year-chip sup, .year-figure sup {
+  font-size: 0.45em;
+}
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 10px 10px 6px;
+}
+
+.lanes {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  height: 100%;
+}
+
+.bar-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1.3rem minmax(0, 0.9fr) minmax(0, 1.5fr) auto;
+  gap: 6px;
+  align-items: center;
+  will-change: transform;
+}
+
+.place {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: right;
+}
+
+.place.is-leader { color: var(--brass); }
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.track {
+  height: 58%;
+  min-height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  min-width: 4px;
+}
+
+.value {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  color: var(--ink);
+  min-width: 4.6rem;
+  text-align: right;
+}
+
+.year-panel { display: none; }
+
+.controls {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-areas:
+    "play restart speeds"
+    "scrub scrub scrub";
+  gap: 8px;
+  align-items: center;
+}
+
+.play, .ghost, .speeds button {
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: var(--brass);
+  color: var(--brass-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ghost, .speeds button {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-weight: 600;
+}
+
+.play { grid-area: play; }
+.ghost { grid-area: restart; }
+
+.scrub { grid-area: scrub; display: block; }
+
+.scrub input {
+  width: 100%;
+  accent-color: var(--brass);
+  height: 28px;
+}
+
+.speeds {
+  grid-area: speeds;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.speeds button {
+  padding: 8px 10px;
+  min-width: 44px;
+}
+
+@media (max-width: 799px) {
+  .controls {
+    grid-template-areas:
+      "play restart restart"
+      "speeds speeds speeds"
+      "scrub scrub scrub";
+  }
+
+  .speeds { justify-content: stretch; }
+
+  .speeds button {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 4px;
+  }
+}
+
+.speeds button.is-on {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: transparent;
+}
+
+.about {
+  font-size: 0.8rem;
+}
+
+.about summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.about p { margin: 8px 0 0; max-width: 78ch; }
+
+@media (min-width: 800px) {
+  .home { padding-top: 56px; }
+
+  .chart-card {
+    grid-template-columns: 1.3fr 0.9fr;
+    align-items: center;
+    padding: 22px;
+  }
+
+  .preview-row { grid-template-columns: 148px 1fr; }
+
+  .screen {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  .year-chip { display: none; }
+
+  .stage {
+    grid-template-columns: 1fr 190px;
+    padding: 16px 16px 12px 12px;
+  }
+
+  .year-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 4px 12px 8px;
+  }
+
+  .year-panel p { margin: 0; }
+
+  .year-figure {
+    font-size: clamp(4.2rem, 8vw, 6.4rem);
+    line-height: 0.85;
+    color: var(--brass);
+    margin: 4px 0 18px;
+  }
+
+  .leading-label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+  }
+
+  .leading-name {
+    color: var(--ink);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-top: 4px;
+  }
+
+  .bar-row {
+    grid-template-columns: 1.6rem minmax(120px, 210px) 1fr 5.6rem;
+    gap: 10px;
+  }
+
+  .name { font-size: 1rem; }
+  .value { font-size: 0.92rem; }
+
+  .controls {
+    grid-template-columns: auto auto minmax(180px, 1fr) auto;
+    grid-template-areas: "play restart scrub speeds";
+  }
+}
+
+@media (max-width: 799px) {
+  .bar-row {
+    grid-template-columns: 1.35rem minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(12px, 1fr);
+    grid-template-areas:
+      "place name value"
+      "place track track";
+    column-gap: 8px;
+    row-gap: 3px;
+    align-items: center;
+  }
+
+  .place { grid-area: place; align-self: start; padding-top: 1px; }
+  .name { grid-area: name; font-size: 0.95rem; }
+  .value { grid-area: value; min-width: 0; }
+  .track {
+    grid-area: track;
+    height: 14px;
+    min-height: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .name { font-size: 0.78rem; }
+  .value { min-width: 3.7rem; font-size: 0.7rem; }
+  .titles p { display: none; }
+  .controls {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "play restart"
+      "speeds speeds"
+      "scrub scrub";
+  }
+  .speeds button { flex: 1; }
+}
